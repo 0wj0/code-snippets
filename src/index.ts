@@ -44,7 +44,7 @@ let clicked: EventTarget;
 /**
  * Initialization data for the code_snippets extension.
  */
-const code_snippet_extension: JupyterFrontEndPlugin<void> = {
+const codeSnippetExtension: JupyterFrontEndPlugin<void> = {
   id: CODE_SNIPPET_EXTENSION_ID,
   autoStart: true,
   requires: [ICommandPalette, ILayoutRestorer],
@@ -234,4 +234,4 @@ function createUndoDeleteNode(
   return body;
 }
 
-export default code_snippet_extension;
+export default codeSnippetExtension;

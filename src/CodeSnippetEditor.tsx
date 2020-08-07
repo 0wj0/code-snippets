@@ -467,16 +467,16 @@ export class CodeSnippetEditor extends ReactWidget {
           <input
             className="jp-snippet-editor-name"
             defaultValue={this.args.codeSnippet.displayName}
-            onClick={event => this.activeFieldState(event)}
-          ></input>
+            onClick={(event): void => this.activeFieldState(event)}
+          />
           <label className="jp-snippet-editor-description-label">
             Description
           </label>
           <input
             className="jp-snippet-editor-description"
             defaultValue={this.args.codeSnippet.description}
-            onClick={event => this.activeFieldState(event)}
-          ></input>
+            onClick={(event): void => this.activeFieldState(event)}
+          />
           {/* <input
             className="jp-snippet-editor-language"
             type="text"
