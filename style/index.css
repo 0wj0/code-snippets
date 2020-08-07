@@ -1,0 +1,462 @@
+/*
+ * Copyright 2018-2020 IBM Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.elyra-expandableContainer-button,
+.elyra-expandableContainer-button.jp-mod-styled {
+  background-color: transparent;
+  vertical-align: middle;
+  padding: 0;
+  width: 20px;
+}
+
+.elyra-expandableContainer-button:hover {
+  cursor: pointer;
+}
+
+.elyra-expandableContainer-actionButton:hover {
+  background-color: var(--jp-layout-color1);
+}
+
+.elyra-expandableContainer-actionButton:active {
+  background-color: var(--jp-layout-color2);
+}
+
+.elyra-expandableContainer-title {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0px 4px;
+  margin-left: 15px;
+  height: 36px;
+}
+
+.elyra-expandableContainer-title:hover {
+  background: var(--jp-layout-color2);
+}
+
+.elyra-expandableContainer-title:hover .elyra-expandableContainer-button {
+  background-color: var(--jp-layout-color2);
+}
+
+.elyra-expandableContainer-name {
+  flex-grow: 1;
+  font-size: var(--jp-ui-font-size1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 4px 0 4px 2px;
+  line-height: 28px;
+  margin-top: -10px;
+}
+
+.elyra-expandableContainer-name:hover {
+  cursor: pointer;
+}
+
+.elyra-button {
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  height: 100%;
+}
+
+.elyra-CodeSnippets {
+  height: 100%;
+  overflow: scroll;
+}
+
+.elyra-codeSnippetsHeader {
+  font-size: var(--jp-ui-font-size0);
+  font-weight: 600;
+  /* font-size: 13px; */
+  /* font-family: helvetica; */
+  text-transform: uppercase;
+  padding: 8px 0 8px 12px;
+  border-bottom: var(--jp-border-width) solid var(--jp-toolbar-border-color);
+  /* border-top: var(--jp-border-width) solid var(--jp-toolbar-border-color); */
+}
+
+.elyra-codeSnippet-item {
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.elyra-codeSnippet-item-clicked {
+  background-color: var(--jp-layout-color2);
+}
+
+.jp-confirm {
+  position: absolute;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--jp-dialog-background);
+}
+
+.jp-Message-content {
+  display: flex;
+  flex-direction: column;
+  background: var(--jp-layout-color1);
+  padding: 10px;
+  border: 3px solid #388e3c;
+  min-width: 250px;
+  max-width: 1000px;
+  box-sizing: border-box;
+  box-shadow: var(--jp-elevation-z20);
+  word-wrap: break-word;
+  border-radius: var(--jp-border-radius);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+  margin: auto 6px 30px auto;
+}
+
+.jp-Message-body {
+  display: flex;
+  align-items: center;
+}
+
+.jp-confirm-text {
+  width: 183px;
+  font-family: helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  text-align: left;
+}
+
+.elyra-codeSnippet-item.jp-snippet-dropTarget {
+  border-top: 2px solid var(--jp-private-notebook-selected-color);
+}
+
+.jp-preview {
+  position: absolute;
+  min-width: 2px;
+  min-height: 30px;
+  top: 31px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--jp-dialog-background);
+}
+
+.jp-preview.inactive {
+  display: none;
+}
+
+.jp-Preview-content {
+  background: var(--jp-layout-color1);
+  padding: 10px;
+  min-width: 960px;
+  max-width: 1000px;
+  max-height: 90%;
+  box-sizing: border-box;
+  box-shadow: var(--jp-elevation-z20);
+  word-wrap: break-word;
+  border-radius: var(--jp-border-radius);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+  margin: auto auto auto 10px;
+}
+
+.jp-Preview-header {
+  border-bottom: var(--jp-border-width) solid var(--jp-toolbar-border-color);
+  padding-bottom: 5px;
+}
+
+.jp-Preview-body {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.jp-preview-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  padding: var(--jp-cell-padding);
+}
+
+.jp-preview-textarea {
+  font-family: var(--jp-code-font-family-default);
+  font-size: var(--jp-code-font-size);
+  line-height: var(--jp-code-line-height);
+  text-align: left;
+  flex-grow: 1;
+  resize: none;
+  white-space: pre;
+  padding: var(--jp-code-padding);
+  padding-left: 20px;
+}
+
+.jp-preview-description-container {
+  font-family: var(--jp-code-font-family);
+  font-size: var(--jp-code-font-size);
+  line-height: var(--jp-code-line-height);
+  text-align: left;
+  flex-grow: 1;
+  resize: none;
+  padding: var(--jp-code-padding);
+  margin-bottom: 10px;
+  border-bottom: var(--jp-border-width) solid var(--jp-toolbar-border-color);
+}
+
+.jp-preview-description-title {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 3px;
+  padding-left: 5px;
+}
+
+.jp-preview-description {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: var(--jp-code-line-height);
+  text-align: left;
+  flex-grow: 1;
+  resize: none;
+  padding: var(--jp-code-padding);
+  word-wrap: break-word;
+  width: 960px;
+  display: block;
+}
+
+.jp-Preview-button {
+  width: 51px;
+  height: 51px;
+  background-image: url(./icon/Jupyter_pencileditbutton_inactive.svg);
+  float: right;
+  margin-top: -80px;
+  margin-right: 9px;
+  cursor: pointer;
+}
+
+.jp-Preview-button-hover {
+  background-image: url(./icon/jupyter_pencileditbutton_hover.svg);
+  cursor: pointer;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 17px 17px 0;
+  border-color: transparent #e0e0e0 transparent transparent;
+  right: 0;
+  position: absolute;
+  transition: border-color 0.2s linear;
+  cursor: pointer;
+}
+
+.jp-codesnippet-searchbar {
+  margin: 5px;
+}
+
+.triangle:hover {
+  border-color: transparent #1976d2 transparent transparent;
+}
+
+.selected {
+  border-color: transparent #1976d2 transparent transparent;
+}
+
+.drag-hover {
+  width: 20px;
+  height: 36px;
+  position: absolute;
+  display: block;
+  margin-right: -3px;
+  cursor: move;
+  /*background-image: url(./icon/dragtab_jupyter.svg);;
+   transition: background-image ease;*/
+}
+
+.drag-hover-clicked {
+  background-image: url(./icon/drag_active_jupyter.svg);
+  background-color: var(--jp-layout-color2);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.drag-hover-selected {
+  background-image: url(./icon/dragtab_jupyter.svg);
+  margin-right: -2px;
+  background-color: var(--jp-layout-color2);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.jp-undo-delete-content {
+  display: flex;
+  flex-direction: column;
+  background: var(--jp-layout-color1);
+  padding: 10px;
+  border-top: 3px solid #f57c00;
+  height: auto;
+  width: 250px;
+  box-sizing: border-box;
+  box-shadow: var(--jp-elevation-z4);
+  word-wrap: break-word;
+  border-radius: var(--jp-border-radius);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--jp-ui-font-color1);
+  margin: 0px 6px 30px auto;
+}
+
+.jp-undo-delete {
+  position: absolute;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  right: 0px;
+  margin: 0;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.jp-undo-delete-body {
+  display: flex;
+  align-items: center;
+}
+
+.jp-undo-delete-close {
+  width: 14px;
+  height: 14px;
+  background-image: url(./icon/close_jupyter.svg);
+}
+
+.jp-click-undo {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+mark.jp-search-bolding {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.jp-codesnippet-drag-image {
+  border: var(--jp-border-width) solid var(--jp-cell-editor-border-color);
+  background: var(--jp-layout-color2);
+  width: var(--jp-private-notebook-dragImage-width);
+  height: var(--jp-private-notebook-dragImage-height);
+  color: var(--jp-content-font-color3);
+}
+
+.jp-snippet-editor-title {
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-bottom: 20px;
+}
+
+.jp-snippet-editor-name-label {
+  position: absolute;
+  margin-left: 4%;
+  margin-top: -7px;
+  background-color: white;
+  font-size: 12px;
+  color: var(--jp-ui-font-color2);
+}
+
+.jp-snippet-editor-description-label {
+  position: absolute;
+  margin-left: 4%;
+  margin-top: -7px;
+  background-color: white;
+  font-size: 12px;
+  color: var(--jp-ui-font-color2);
+}
+
+.jp-snippet-editor-label-active {
+  color: var(--jp-cell-editor-active-border-color);
+}
+
+.jp-snippet-editor-name {
+  display: block;
+  margin-bottom: 30px;
+  margin-left: 3%;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  width: 94%;
+  height: 40px;
+  padding-left: 10px;
+  border-bottom: 1px solid #c4c4c4;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.jp-snippet-editor-description {
+  display: block;
+  margin-bottom: 30px;
+  margin-left: 3%;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  width: 94%;
+  height: 40px;
+  padding-left: 10px;
+  border-bottom: 1px solid #c4c4c4;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.jp-snippet-editor-language {
+  display: block;
+  margin-bottom: 30px;
+  margin-left: 3%;
+  border: 1px solid var(--jp-border-color0);
+  width: 176px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 13px;
+  border-radius: 2px;
+  appearance: none;
+  -webkit-appearance: none; /* chrome and safari */
+  -moz-appearance: none; /* Mozilla */
+  -ms-appearance: none; /* Internet explorer */
+  background-image: url(./icon/jupyter_searcharrowdown.svg);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+}
+
+/* input::-webkit-calendar-picker-indicator {
+   opacity: 100;
+ } */
+
+.jp-snippet-editor-active {
+  border: 1px solid var(--jp-cell-editor-active-border-color);
+  caret-color: var(--jp-cell-editor-active-border-color);
+}
